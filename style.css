@@ -1,0 +1,207 @@
+/*
+Theme Name: EasyPlate Theme
+Theme URI: https://example.com/easyplate
+Author: Antigravity
+Description: A premium, dark-themed WordPress theme with a grid-based blog layout and customizable header/footer.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: easyplate
+*/
+
+/* Core Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0f19;
+    color: #e2e8f0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #1a202c;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ff6b35; /* Orange color from screenshot */
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-item {
+    font-weight: 500;
+    color: #94a3b8;
+}
+
+.nav-item:hover, .nav-item.active {
+    color: #ffffff;
+}
+
+.login-btn {
+    background-color: #ff6b35;
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+.login-btn:hover {
+    background-color: #e85a2a;
+}
+
+/* Grid Layout */
+.container {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid #334155;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #2d3748;
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: #f8fafc;
+}
+
+.post-excerpt {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: #ff6b35;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #0b0f19;
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid #1e293b;
+    margin-top: 5rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand .logo {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.footer-brand p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    max-width: 300px;
+}
+
+.footer-column h4 {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.75rem;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #1e293b;
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .nav-menu {
+        display: none; /* Mobile menu would need JS/Checkbox toggle */
+    }
+}
