@@ -35,6 +35,7 @@ add_action( 'after_setup_theme', 'easyplate_setup' );
 function easyplate_scripts() {
     wp_enqueue_style( 'easyplate-style', get_stylesheet_uri() );
     wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap' );
+    wp_enqueue_script( 'easyplate-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'easyplate_scripts' );
 

@@ -29,6 +29,15 @@ a {
     transition: all 0.3s ease;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Header Styles */
 .site-header {
     background-color: #1a202c;
@@ -46,6 +55,10 @@ a {
     font-size: 1.5rem;
     font-weight: 700;
     color: #ff6b35; /* Orange color from screenshot */
+    flex-shrink: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .nav-menu {
@@ -195,13 +208,299 @@ a {
     gap: 1.5rem;
 }
 
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none !important;
+    width: 44px;
+    height: 44px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='12' x2='21' y2='12'%3E%3C/line%3E%3Cline x1='3' y1='6' x2='21' y2='6'%3E%3C/line%3E%3Cline x1='3' y1='18' x2='21' y2='18'%3E%3C/line%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 28px;
+    border: none;
+    cursor: pointer;
+    z-index: 10001;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E");
+}
+
 @media (max-width: 768px) {
+    h1 {
+        font-size: 1.75rem !important;
+    }
+
+    .site-header {
+        padding: 0.75rem 1.5rem !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        overflow: visible !important;
+        min-height: 60px;
+    }
+
+    .menu-toggle {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        z-index: 10002 !important;
+    }
+
+    .nav-menu {
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 80% !important;
+        max-width: 300px !important;
+        height: 100vh !important;
+        background-color: #1a202c !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5) !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        margin: 0 !important;
+    }
+
+    .nav-menu.active {
+        right: 0 !important;
+    }
+
+    /* Adjust for WP Admin Bar */
+    .admin-bar .nav-menu {
+        top: 46px !important;
+    }
+
+    .nav-menu .nav-item, 
+    .nav-menu .login-btn {
+        display: block;
+        width: auto;
+    }
+
+    .nav-item {
+        font-size: 1.2rem;
+    }
+
+    .login-btn {
+        width: 200px;
+        text-align: center;
+    }
+
+    .container {
+        margin: 2rem auto;
+    }
+
+    .post-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
     .footer-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .footer-legal {
+        justify-content: center;
+    }
+}
+
+/* Single Post & Content */
+.single-post-container {
+    max-width: 800px !important;
+}
+
+.post-header {
+    margin-bottom: 2rem;
+}
+
+.entry-title {
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+}
+
+.post-meta {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.post-featured-image {
+    margin-bottom: 2.5rem;
+}
+
+.post-featured-image img {
+    width: 100%;
+    border-radius: 16px;
+    height: auto;
+}
+
+.entry-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.post-footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #1e293b;
+}
+
+.tags {
+    color: #ff6b35;
+}
+
+.entry-content p {
+    margin-bottom: 1.5rem;
+}
+
+.entry-content blockquote {
+    border-left: 4px solid #ff6b35;
+    padding-left: 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #ffffff;
+}
+
+.entry-content ul, .entry-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+.entry-content li {
+    margin-bottom: 0.5rem;
+}
+
+.comments-area {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid #1e293b;
+}
+
+.comments-title, .comment-reply-title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.comment-list {
+    list-style: none;
+    margin-bottom: 4rem;
+}
+
+.comment {
+    margin-bottom: 2.5rem;
+}
+
+.comment-body {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #334155;
+}
+
+.comment-meta {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.comment-author cite {
+    font-weight: 600;
+    color: #ffffff;
+    font-style: normal;
+    margin-right: 0.5rem;
+}
+
+.comment-content {
+    color: #cbd5e1;
+}
+
+.reply {
+    margin-top: 1rem;
+}
+
+.comment-reply-link {
+    color: #ff6b35;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Comment Form */
+#commentform {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.comment-form-comment textarea {
+    width: 100%;
+    min-height: 150px;
+}
+
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+#commentform textarea {
+    width: 100%;
+    background: #1e293b;
+    border: 1px solid #334155;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+#commentform input:focus,
+#commentform textarea:focus {
+    outline: none;
+    border-color: #ff6b35;
+}
+
+#commentform label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.form-submit input[type="submit"] {
+    background: #ff6b35;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.form-submit input[type="submit"]:hover {
+    background: #e85a2a;
+}
+
+@media (max-width: 768px) {
+    .entry-content {
+        font-size: 1rem !important;
     }
     
-    .nav-menu {
-        display: none; /* Mobile menu would need JS/Checkbox toggle */
+    .comment-body {
+        padding: 1rem;
     }
 }
